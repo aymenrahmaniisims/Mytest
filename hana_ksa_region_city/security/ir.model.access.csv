@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_ksa_region_system_user,ksa.region,model_ksa_region,base.group_user,1,1,1,1
+access_ksa_region_manager,ksa.region,model_ksa_region,base.group_hr_manager,1,1,1,1
+
+access_ksa_city_system_user,ksa.city,model_ksa_city,base.group_user,1,1,1,1
+access_ksa_city_manager,ksa.city,model_ksa_city,base.group_hr_manager,1,1,1,1

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data noupdate="1">
+	
+		<record id="ksa_region_item_1" model="ksa.region">
+		    <field name="name">Al Bāhah</field>
+		    <field name="country_id">194</field>
+		    <field name="code">BA</field>
+		</record>
+		<record id="ksa_region_item_2" model="ksa.region">
+		    <field name="name">Al Ḥudūd</field>
+		    <field name="country_id">194</field>
+		    <field name="code">HU</field>
+		</record>
+		<record id="ksa_region_item_3" model="ksa.region">
+		    <field name="name">Al Jawf</field>
+		    <field name="country_id">194</field>
+		    <field name="code">JA</field>
+		</record>
+		
+		<record id="ksa_region_item_4" model="ksa.region">
+		    <field name="name">Al Madīnah</field>
+		    <field name="country_id">194</field>
+		    <field name="code">MD</field>
+		</record>
+		<record id="ksa_region_item_5" model="ksa.region">
+		    <field name="name">Al Qaṣīm</field>
+		    <field name="country_id">194</field>
+		    <field name="code">QS</field>
+		</record>
+		<record id="ksa_region_item_6" model="ksa.region">
+		    <field name="name">Ar Riyāḍ</field>
+		    <field name="country_id">194</field>
+		    <field name="code">RI</field>
+		</record>
+		<record id="ksa_region_item_7" model="ksa.region">
+		    <field name="name">Ash Sharqīyah</field>
+		    <field name="country_id">194</field>
+		    <field name="code">SH</field>
+		</record>
+		<record id="ksa_region_item_8" model="ksa.region">
+		    <field name="name">Asīr</field>
+		    <field name="country_id">194</field>
+		    <field name="code">AS</field>
+		</record>
+		<record id="ksa_region_item_9" model="ksa.region">
+		    <field name="name">Ḥā'il</field>
+		    <field name="country_id">194</field>
+		    <field name="code">HA</field>
+		</record>
+		
+		<record id="ksa_region_item_10" model="ksa.region">
+		    <field name="name">Jīzan</field>
+		    <field name="country_id">194</field>
+		    <field name="code">JZ</field>
+		</record>
+		<record id="ksa_region_item_11" model="ksa.region">
+		    <field name="name">Makkah</field>
+		    <field name="country_id">194</field>
+		    <field name="code">MK</field>
+		</record>
+		<record id="ksa_region_item_12" model="ksa.region">
+		    <field name="name">Najrān</field>
+		    <field name="country_id">194</field>
+		    <field name="code">NJ</field>
+		</record>
+		<record id="ksa_region_item_13" model="ksa.region">
+		    <field name="name">Tabūk</field>
+		    <field name="country_id">194</field>
+		    <field name="code">TA</field>
+		</record>
+	</data>
+</openerp>

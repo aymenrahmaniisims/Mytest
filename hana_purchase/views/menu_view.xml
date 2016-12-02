@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <openerp>
+        <data>
+            	<menuitem id="menu_Purchase_Order_order" name="Purchase Order " parent="hana_catering.menu_catering_root" />
+         </data>
+</openerp>

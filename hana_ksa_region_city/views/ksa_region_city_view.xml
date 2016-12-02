@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<openerp>
+    <data>
+    
+<menuitem id="ksa_region_city_menu" name="KSA regions/city/city part"  parent ="project.menu_project_config"/>
+
+		<record id="view_ksa_region_form" model="ir.ui.view">
+            <field name="name">ksa.region.form</field>
+            <field name="model">ksa.region</field>
+            <field name="arch" type="xml">
+            <form string="ksa region">
+                <sheet>
+                	<group>
+                		<group>
+	                		<field name="country_id" />
+			             	<field name="name" />
+			             	 <field name="code" />
+		            </group>
+		            </group>
+                </sheet>
+            </form>
+            </field>
+        </record>
+        <record id="view_ksa_region_tree" model="ir.ui.view">
+            <field name="name">ksa.region.tree</field>
+            <field name="model">ksa.region</field>
+            <field name="arch" type="xml">
+	            <tree>
+				            <field name="name" />
+			                <field name="country_id" />
+			                 <field name="code" />
+	            </tree>
+            </field>
+        </record>
+       <record id="action_ksa_region" model="ir.actions.act_window">
+          <field name="name">KSA region</field>
+          <field name="type">ir.actions.act_window</field>
+          <field name="res_model">ksa.region</field>
+          <field name="view_type">form</field>
+          <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                Click to create ksa region.
+              </p>
+            </field>
+       </record>
+      
+<menuitem id="menu_ksa_region" action="action_ksa_region"  parent="ksa_region_city_menu" />
+	    
+       <record id="view_ksa_city_form" model="ir.ui.view">
+            <field name="name"> KSA city .form</field>
+            <field name="model">ksa.city</field>
+            <field name="arch" type="xml">
+            <form string="ksa region">
+                <sheet>
+                	<group>
+                		<group>
+                			<field name="region_id" />
+	                		<field name="name" />
+	                		<field name="code" />
+		            	</group>
+		            </group>
+		                    
+                </sheet>
+            </form>
+            </field>
+        </record>
+        <record id="view_ksa_city_tree" model="ir.ui.view">
+            <field name="name">ksa.city.tree</field>
+            <field name="model">ksa.city</field>
+            <field name="arch" type="xml">
+	            <tree>
+				            <field name="name" />
+			                <field name="region_id" />
+			                <field name="code" />
+	            </tree>
+            </field>
+        </record>
+       <record id="action_ksa_city" model="ir.actions.act_window">
+          <field name="name">KSA city</field>
+          <field name="type">ir.actions.act_window</field>
+          <field name="res_model">ksa.city</field>
+          <field name="view_type">form</field>
+          <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                Click to create ksa city.
+              </p>
+            </field>
+       </record>
+
+<menuitem id="menu_ksa_city" action="action_ksa_city"  parent="ksa_region_city_menu" />
+
+
+       <record id="view_ksa_city_part_form" model="ir.ui.view">
+            <field name="name"> KSA city part .form</field>
+            <field name="model">ksa.city.part</field>
+            <field name="arch" type="xml">
+            <form string="ksa city part">
+                <sheet>
+                	<group>
+                		<group>
+                			<field name="city_id" />
+	                		<field name="name" />
+	                		<field name="code" />
+		            	</group>
+		            </group>
+		                    
+                </sheet>
+            </form>
+            </field>
+        </record>
+        <record id="view_ksa_city_part_tree" model="ir.ui.view">
+            <field name="name">ksa.city.part.tree</field>
+            <field name="model">ksa.city.part</field>
+            <field name="arch" type="xml">
+	            <tree>
+				            <field name="name" />
+			                <field name="city_id" />
+			                <field name="code" />
+	            </tree>
+            </field>
+        </record>
+       <record id="action_ksa_city_part" model="ir.actions.act_window">
+          <field name="name">KSA city part</field>
+          <field name="type">ir.actions.act_window</field>
+          <field name="res_model">ksa.city.part</field>
+          <field name="view_type">form</field>
+          <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                Click to create ksa city part.
+              </p>
+            </field>
+       </record>
+
+<menuitem id="menu_ksa_city_part" action="action_ksa_city_part"  parent="ksa_region_city_menu" />
+    </data>
+</openerp>

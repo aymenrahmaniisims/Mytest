@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <openerp>
+        <data>
+        	<!-- Week Plan -->
+            <record model="ir.ui.view" id="view_catering_week_plan_form">
+                <field name="name">catering.week.plan.form</field>
+                <field name="model">catering.week.plan</field>
+                <field name="arch" type="xml">
+					<form string="Diet Order">
+						<header>
+	                		<button name="action_activate" icon="gtk-apply" string="Activate" type="object" states="inactive"/>
+		                    <button name="action_inactivate" icon="gtk-apply" string="Inactivate" type="object" states="active" />
+	                    	<field name="state" widget="statusbar" statusbar_visible="active,inactive"/> 
+	                	</header>
+	                    <sheet>
+		                         <group colspan="4" col="4">
+		                         	<field name="name"/>
+									<field name="employee_id"/>
+		                        	<field name="project_id"/>
+		                        	<field name="benificery_word_id"/>
+									<field name="benificery_category_id"/>
+								</group>
+								<notebook>
+	                        		
+	                        		<page name="Sunday" string="Sunday">
+		                                <group colspan="4" col="4">
+									         <field name="sunday_breakfast_lines" widget="many2many_tags"/>
+								             <field name="sunday_breakfast_snack_lines" widget="many2many_tags"/>
+									    	 <field name="sunday_lunch_lines" widget="many2many_tags"/>
+								             <field name="sunday_lunch_snack_lines" widget="many2many_tags"/>
+								             <field name="sunday_dinner_lines" widget="many2many_tags"/>
+								             <field name="sunday_dinner_snack_lines" widget="many2many_tags"/>
+									    </group>
+	                            </page>
+	                            <page name="Monday" string="Monday">
+		                                <group colspan="4" col="4">
+									         <field name="monday_breakfast_lines" widget="many2many_tags"/>
+								             <field name="monday_breakfast_snack_lines" widget="many2many_tags"/>
+									    	 <field name="monday_lunch_lines" widget="many2many_tags"/>
+								             <field name="monday_lunch_snack_lines" widget="many2many_tags"/>
+								             <field name="monday_dinner_lines" widget="many2many_tags"/>
+								             <field name="monday_dinner_snack_lines" widget="many2many_tags"/>
+									    </group>
+	                            </page>
+	                            
+	                            <page name="Tuesday" string="Tuesday">
+		                                <group colspan="4" col="4">
+									         <field name="tuesday_breakfast_lines" widget="many2many_tags"/>
+								             <field name="tuesday_breakfast_snack_lines" widget="many2many_tags"/>
+									    	 <field name="tuesday_lunch_lines" widget="many2many_tags"/>
+								             <field name="tuesday_lunch_snack_lines" widget="many2many_tags"/>
+								             <field name="tuesday_dinner_lines" widget="many2many_tags"/>
+								             <field name="tuesday_dinner_snack_lines" widget="many2many_tags"/>
+									    </group>
+	                            </page>
+	                            
+	                            <page name="Wednesday" string="Wednesday">
+		                                <group colspan="4" col="4">
+									         <field name="wednesday_breakfast_lines" widget="many2many_tags"/>
+								             <field name="wednesday_breakfast_snack_lines" widget="many2many_tags"/>
+									    	 <field name="wednesday_lunch_lines" widget="many2many_tags"/>
+								             <field name="wednesday_lunch_snack_lines" widget="many2many_tags"/>
+								             <field name="wednesday_dinner_lines" widget="many2many_tags"/>
+								             <field name="wednesday_dinner_snack_lines" widget="many2many_tags"/>
+									    </group>
+	                            </page>
+	                            
+	                            
+	                            <page name="Thursday" string="Thursday">
+		                                <group colspan="4" col="4">
+									         <field name="thursday_breakfast_lines" widget="many2many_tags"/>
+								             <field name="thursday_breakfast_snack_lines" widget="many2many_tags"/>
+									    	 <field name="thursday_lunch_lines" widget="many2many_tags"/>
+								             <field name="thursday_lunch_snack_lines" widget="many2many_tags"/>
+								             <field name="thursday_dinner_lines" widget="many2many_tags"/>
+								             <field name="thursday_dinner_snack_lines" widget="many2many_tags"/>
+									    </group>
+	                            </page>
+	                            
+	                            <page name="Friday" string="Friday">
+		                                <group colspan="4" col="4">
+									         <field name="friday_breakfast_lines" widget="many2many_tags"/>
+								             <field name="friday_breakfast_snack_lines" widget="many2many_tags"/>
+									    	 <field name="friday_lunch_lines" widget="many2many_tags"/>
+								             <field name="friday_lunch_snack_lines" widget="many2many_tags"/>
+								             <field name="friday_dinner_lines" widget="many2many_tags"/>
+								             <field name="friday_dinner_snack_lines" widget="many2many_tags"/>
+									    </group>
+	                            </page>
+	                            
+	                            <page name="Saturday" string="Saturday">
+		                                <group colspan="4" col="4">
+									         <field name="saturday_breakfast_lines" widget="many2many_tags"/>
+								             <field name="saturday_breakfast_snack_lines" widget="many2many_tags"/>
+									    	 <field name="saturday_lunch_lines" widget="many2many_tags"/>
+								             <field name="saturday_lunch_snack_lines" widget="many2many_tags"/>
+								             <field name="saturday_dinner_lines" widget="many2many_tags"/>
+								             <field name="saturday_dinner_snack_lines" widget="many2many_tags"/>
+									    </group>
+	                            </page>
+	                            
+	                            
+	                        </notebook>
+	                    </sheet>
+	                    <div class="oe_chatter">
+	                        <field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
+	                        <field name="message_ids" widget="mail_thread"/>
+	                    </div>
+                	</form>
+	            </field>
+	        </record>
+	        
+	        
+	        <record model="ir.ui.view" id="view_catering_week_plan_tree">
+                <field name="name">catering.week.plan.tree</field>
+                <field name="model">catering.week.plan</field>
+                <field name="arch" type="xml">
+					<tree string="Diet Order">
+		                         	<field name="name"/>
+		                         	<field name="benificery_word_id"/>
+		                         	<field name="benificery_category_id"/>
+		                         	<field name="state"/>
+		                        	<field name="project_id"/>
+		                        	<field name="employee_id"/>
+                	</tree>
+	            </field>
+	        </record>
+            <record id="open_view_catering_week_plan" model="ir.actions.act_window">
+	            <field name="name">Week Plans</field>
+	            <field name="res_model">catering.week.plan</field>
+	            <field name="view_type">form</field>
+	            <field name="view_mode">tree,form</field>
+	            <field name="view_id" eval="False"/>
+	        </record>
+        <menuitem action="open_view_catering_week_plan" id="menu_open_view_catering_week_plan" parent="menu_catering_configuration"/>
+        
+        
+         </data>
+</openerp>

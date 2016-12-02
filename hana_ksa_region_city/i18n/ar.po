@@ -1,0 +1,123 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* ksa_region_city
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-01-03 08:12+0000\n"
+"PO-Revision-Date: 2016-01-03 08:12+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: ksa_region_city
+#: model:ir.actions.act_window,help:ksa_region_city.action_ksa_city
+msgid "<p class=\"oe_view_nocontent_create\">\n"
+"                Click to create ksa city.\n"
+"              </p>\n"
+"            "
+msgstr "<p class=\"oe_view_nocontent_create\">\n"
+"                Click to create ksa city.\n"
+"              </p>\n"
+"            "
+
+#. module: ksa_region_city
+#: model:ir.actions.act_window,help:ksa_region_city.action_ksa_region
+msgid "<p class=\"oe_view_nocontent_create\">\n"
+"                Click to create ksa region.\n"
+"              </p>\n"
+"            "
+msgstr "<p class=\"oe_view_nocontent_create\">\n"
+"                Click to create ksa region.\n"
+"              </p>\n"
+"            "
+
+#. module: ksa_region_city
+#: help:ksa.city,name:0
+msgid "Administrative City ."
+msgstr "Administrative City ."
+
+#. module: ksa_region_city
+#: help:ksa.region,name:0
+msgid "Administrative region of a state."
+msgstr "Administrative region of a state."
+
+#. module: ksa_region_city
+#: field:ksa.city,name:0
+msgid "City Name"
+msgstr "إسم الحي"
+
+#. module: ksa_region_city
+#: field:ksa.region,country_id:0
+msgid "Country"
+msgstr "البلد"
+
+#. module: ksa_region_city
+#: field:ksa.city,create_uid:0
+#: field:ksa.region,create_uid:0
+msgid "Created by"
+msgstr "Created by"
+
+#. module: ksa_region_city
+#: field:ksa.city,create_date:0
+#: field:ksa.region,create_date:0
+msgid "Created on"
+msgstr "Created on"
+
+#. module: ksa_region_city
+#: field:ksa.city,id:0
+#: field:ksa.region,id:0
+msgid "ID"
+msgstr "/"
+
+#. module: ksa_region_city
+#: model:ir.actions.act_window,name:ksa_region_city.action_ksa_city
+#: model:ir.model,name:ksa_region_city.model_ksa_city
+#: model:ir.ui.menu,name:ksa_region_city.menu_ksa_city
+msgid "KSA city"
+msgstr "المدن"
+
+#. module: ksa_region_city
+#: model:ir.actions.act_window,name:ksa_region_city.action_ksa_region
+#: model:ir.model,name:ksa_region_city.model_ksa_region
+#: model:ir.ui.menu,name:ksa_region_city.menu_ksa_region
+msgid "KSA region"
+msgstr "المناطق"
+
+#. module: ksa_region_city
+#: model:ir.ui.menu,name:ksa_region_city.ksa_region_city_menu
+msgid "KSA regions/city"
+msgstr "المملكة المناطق/المدن"
+
+#. module: ksa_region_city
+#: field:ksa.city,write_uid:0
+#: field:ksa.region,write_uid:0
+msgid "Last Updated by"
+msgstr "Last Updated by"
+
+#. module: ksa_region_city
+#: field:ksa.city,write_date:0
+#: field:ksa.region,write_date:0
+msgid "Last Updated on"
+msgstr "Last Updated on"
+
+#. module: ksa_region_city
+#: field:ksa.city,region_id:0
+msgid "Region"
+msgstr "المنطقة"
+
+#. module: ksa_region_city
+#: field:ksa.region,name:0
+msgid "Region Name"
+msgstr "إسم المنطقة"
+
+#. module: ksa_region_city
+#: view:ksa.city:ksa_region_city.view_ksa_city_form
+#: view:ksa.region:ksa_region_city.view_ksa_region_form
+msgid "ksa region"
+msgstr "المناطق"

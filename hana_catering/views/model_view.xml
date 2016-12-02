@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <openerp>
+        <data>
+        	<!-- Project -->
+            <record model="ir.ui.view" id="view_users_form_inherit">
+                <field name="name">project.project.form</field>
+                <field name="model">project.project</field>
+                <field name="inherit_id" ref="project.edit_project" />
+                <field name="arch" type="xml">
+					   <xpath expr="//notebook" position="inside">
+					        <page string="Bids Benificery Category((Estimated Values))" nolabel="1">
+					        	<group>
+				                    </group>
+					        </page>
+					        <page string="Benificery Category((Hospital configuration))">
+					        	<group>
+				                        <field name="benificery_word_ids" nolabel="1">
+												<tree string="Benificery Word" editable="bottom">
+						                        	<field name="name"/>
+						                        	<field name="benificery_category_id"/>
+						                        </tree>
+						               </field>
+				                    </group>
+					        </page>
+					        <page string="Work Planification" nolabel="1">
+					        	<group>
+					        			<group>
+						        			<field name="date_from"/>
+			            					<field name="date_to"/>
+		            					</group>
+		            					<group>
+				                        	<button string="Generate Week Plans" type="object" name="generate_week_plans" class="oe_highlight"/>
+				                		</group>
+				                </group>
+					        </page>
+			    </xpath>
+                </field>
+            </record>
+            
+           <!-- Product Pack --> 
+            <record model="ir.ui.view" id="view_product_pack_form">
+                <field name="name">product.pack.form</field>
+                <field name="model">product.pack</field>
+                <field name="arch" type="xml">
+                <form string="Product Pack">
+					   <sheet>
+						<group>
+							<field name="name"/>
+							<field name="project_id"/>
+							<field name="employee_id"/>
+						</group>
+						<group>
+							<group string="Basic Products">
+								 <field name="basic_product_pack_lines" nolabel="1">
+													<tree string="basic_product_pack_lines" editable="bottom">
+														<field name="product_id"/>
+														<field name="product_image"/>
+							                        	<field name="product_uom_qty"/>
+							                        	<field name="product_uom"/>
+							                        	<field name="note"/>
+							                        </tree>
+						          </field>
+	                         </group>
+	                         <group string="Support Products">
+	                         	 <field name="support_product_pack_lines" nolabel="1">
+													<tree string="support_product_pack_lines" editable="bottom">
+														<field name="product_id"/>
+														<field name="product_image"/>
+							                        	<field name="product_uom_qty"/>
+							                        	<field name="product_uom"/>
+							                        	<field name="note"/>
+							                        </tree>
+						          </field>
+	                         </group>
+						</group>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                 </form>
+            </field>
+        </record>
+        <record id="view_product_pack_tree" model="ir.ui.view">
+            <field name="name">product.pack.tree</field>
+            <field name="model">product.pack</field>
+            <field name="arch" type="xml">
+                <tree string="Product Pack">
+                    <field name="name"/>
+					<field name="project_id"/>
+                </tree>
+            </field>
+        </record>
+        
+        <record id="open_view_product_pack" model="ir.actions.act_window">
+            <field name="name">Product Pack</field>
+            <field name="res_model">product.pack</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" eval="False"/>
+        </record>
+        <menuitem action="open_view_product_pack" id="menu_open_view_product_pack" parent="menu_catering_configuration"/>
+        
+        
+        
+        
+        <!--HospitalBenificeryWord --> 
+            <record model="ir.ui.view" id="view_HospitalBenificeryWord_form">
+                <field name="name">catering.hospital.benificery.word.form</field>
+                <field name="model">catering.hospital.benificery.word</field>
+                <field name="arch" type="xml">
+                <form string="HospitalBenificeryWord">
+                    <sheet>
+                    	<group>
+							<field name="name"/>
+							<field name="benificery_category_id"/>
+							<field name="project_id"/>
+							<field name="employee_id"/>
+						</group>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+        <record id="view_HospitalBenificeryWord_tree" model="ir.ui.view">
+            <field name="name">catering.hospital.benificery.word.tree</field>
+            <field name="model">catering.hospital.benificery.word</field>
+            <field name="arch" type="xml">
+				<tree string="HospitalBenificeryword">
+                		<field name="name"/>
+						<field name="benificery_category_id"/>
+						<field name="project_id"/>
+						<field name="employee_id"/>
+                </tree>
+            </field>
+        </record>
+        <record id="open_view_HospitalBenificeryWord" model="ir.actions.act_window">
+            <field name="name">Hospital Benificery Word</field>
+            <field name="res_model">catering.hospital.benificery.word</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" eval="False"/>
+        </record>
+        <menuitem action="open_view_HospitalBenificeryWord" id="menu_open_view_open_view_HospitalBenificeryWord" parent="menu_catering_configuration"/>
+        
+        <!--HospitalBenificeryCategory --> 
+            <record model="ir.ui.view" id="view_HospitalBenificeryCategory_form">
+                <field name="name">catering.hospital.benificery.category.form</field>
+                <field name="model">catering.hospital.benificery.category</field>
+                <field name="arch" type="xml">
+                <form string="HospitalBenificeryCategory">
+                    <sheet>
+                    	<group>
+							<field name="name"/>
+						</group>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+        <record id="view_HospitalBenificeryCategory_tree" model="ir.ui.view">
+            <field name="name">catering.hospital.benificery.category.tree</field>
+            <field name="model">catering.hospital.benificery.category</field>
+            <field name="arch" type="xml">
+				<tree string="HospitalBenificeryCategory">
+                		<field name="name"/>
+						
+                </tree>
+            </field>
+        </record>
+        <record id="open_view_HospitalBenificeryCategory" model="ir.actions.act_window">
+            <field name="name">Benificery Cotageory</field>
+            <field name="res_model">catering.hospital.benificery.category</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" eval="False"/>
+        </record>
+        <menuitem action="open_view_HospitalBenificeryCategory" id="menu_open_view_open_view_HospitalBenificeryCategory" parent="menu_catering_configuration"/>
+        
+        
+        
+            
+         </data>
+</openerp>

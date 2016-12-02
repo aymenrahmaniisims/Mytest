@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <openerp>
+        <data>
+        	<!-- Project -->
+            <menuitem name="Catering Managements"  id="menu_catering_root"/>
+            	<menuitem id="menu_diet_order" name="Diet Order " parent="menu_catering_root" />
+            	<menuitem id="menu_catering_abstract_reports" name="Catering Abstract" parent="menu_catering_root"/>
+            	<menuitem id="menu_catering_configuration" name="Configuration" parent="menu_catering_root"/>
+         </data>
+</openerp>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <openerp>
+        <data>
+        	<!-- User -->
+            <record model="ir.ui.view" id="view_users_form_inherit">
+                <field name="name">res.users.form</field>
+                <field name="model">res.users</field>
+                <field name="inherit_id" ref="base.view_users_form" />
+                <field name="arch" type="xml">
+					    <field name="partner_id" position="replace">
+					    <group>
+					    	<group>
+					    		<field name="partner_id"/>
+					    		<field name="project_id"/>
+					    	</group>
+					    </group>
+						  
+						</field>
+                </field>
+            </record>
+            
+            <!-- Employee -->
+            <record model="ir.ui.view" id="view_employee_form_inherit">
+                <field name="name">hr.employee.form</field>
+                <field name="model">hr.employee</field>
+                <field name="inherit_id" ref="hr.view_employee_form" />
+                <field name="arch" type="xml">
+					    <field name="user_id" position="after">
+					    		<field name="project_id"/>
+						</field>
+                </field>
+            </record>
+            
+            <!-- Project -->
+            <record model="ir.ui.view" id="project_project_code_form_view">
+            <field name="name">project.project.form</field>
+            <field name="model">project.project</field>
+            <field name="inherit_id" ref="project.edit_project" />
+            <field name="arch" type="xml">
+                <field name="name" position="before">
+                    <field name="code" class="oe_inline" />
+                    <label string=" - " class="oe_inline" />
+                </field>
+                <field name="privacy_visibility" position="before">
+                    <field name="region_id" />
+                    <field name="city_id"  />
+                </field>
+            </field>
+</record>
+            
+         </data>
+</openerp>

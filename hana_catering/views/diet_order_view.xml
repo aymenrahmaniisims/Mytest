@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <openerp>  
+        <data>
+        	<!-- DIet Order -->
+            <record model="ir.ui.view" id="view_catering_diet_order_form">
+                <field name="name">catering.diet.order.form</field>
+                <field name="model">catering.diet.order</field>
+                <field name="arch" type="xml">
+					<form string="Diet Order">
+	                	<header>
+		                    <button name="action_confirm" icon="gtk-apply" string="Confirm" type="object" states="draft" />
+		                    <button name="action_done" string="Done" type="object" states="confirm"/>
+		                    <button name="action_cancel"  icon="gtk-cancel"  string="Cancel" type="object" states="draft,confirm" />
+	                    	<field name="state" widget="statusbar" statusbar_visible="draft,confirm,done,cancel"/> 
+	                	</header>
+	                    <sheet>
+		                         <group colspan="4" col="4">
+		                         	<field name="name"/>
+									<field name="employee_id"/>
+		                        	<field name="project_id"/>
+		                        	<field name="food_session"/>
+		                        	<field name="order_date"/>
+		                        	<field name="day"/>
+		                        	<field name="track_generate_food_plans" invisible="1"/>
+		                        	<field name="track_generate_required_pack" invisible="1"/>
+		                        	<field name="track_generate_required_products" invisible="1"/>
+								</group>
+								<button  string="Generate Food Plans" icon="gtk-goto-last" attrs="{'invisible' :[('track_generate_food_plans', '=', True)]}" type="object" name="generate_food_plans" class="oe_highlight"/>
+								<button string="Generate Required Product Packs"  icon="gtk-goto-last" attrs="{'invisible' :['|',('track_generate_required_pack', '=', True),('track_generate_food_plans', '=', False)]}" type="object" name="generate_required_pack" class="oe_highlight"/>
+		                        <button string="Generate Products" icon="gtk-goto-last"  attrs="{'invisible' :['|',('track_generate_required_pack', '=', False),('track_generate_food_plans', '=', False)]}" type="object" name="generate_required_products" class="oe_highlight"/>
+	                    		 <notebook>
+	                            <page name="Diet Order Lines" string="Diet Order Lines">
+	                            	<group string="Diet details">
+				                                <field name="diet_order_lines" nolabel="1">
+													<tree string="diet_order_lines Lines" create="false" editable="bottom" delete="false">
+														<field name="benificery_word_category_id" readonly="1"/>
+							                        	<field name="benificery_word_id" readonly="1"/>
+							                        	<field name="number_of_benificery" />
+							                        	<field name="note" placeholder="Add an internal note..."/>
+							                        	<field name="line_state"/>
+							                        </tree>
+						              			 </field>
+			                        </group>
+	                            </page>
+	                            <page name="Products Pack" string="Products Pack ">
+	                            	<group string="Diet Product Pack Lines">
+				                                <field name="diet_product_pack_lines" nolabel="1">
+													<tree string="diet_product_pack_lines Lines" editable="bottom">
+														<field name="product_pack_ids" />
+							                        	<field name="required_quantity" readonly="1"/>
+							                        	<field name="confirmed_quantity"/>
+							                        	<field name="note" placeholder="Add an internal note..."/>
+							                        	<field name="line_state"/>
+							                        </tree>
+						              			 </field>
+			                        </group>
+	                            </page>
+	                            <page name="Required Products" string="Required Products "> 
+	                            	<group string="Diet Product Pack Lines">
+				                                <field name="diet_product_product_lines" nolabel="1">
+													<tree string="diet_product_product Lines" editable="bottom">
+														<field name="product_id" />
+							                        	<field name="required_quantity" readonly="1"/>
+							                        	<field name="confirmed_quantity"/>
+							                        	<field name="product_uom"/>
+							                        	<field name="note" placeholder="Add an internal note..."/>
+							                        </tree>
+						              			 </field>
+			                        </group>
+	                            </page>
+	                        </notebook>
+	                    </sheet>
+	                    <div class="oe_chatter">
+	                        <field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
+	                        <field name="message_ids" widget="mail_thread"/>
+	                    </div>
+                	</form>
+	            </field>
+	        </record>
+	        <record model="ir.ui.view" id="view_catering_diet_order_tree">
+                <field name="name">catering.diet.order.tree</field>
+                <field name="model">catering.diet.order</field>
+                <field name="arch" type="xml">
+					<tree string="Diet Order">
+		                         	<field name="name"/>
+									<field name="employee_id"/>
+		                        	<field name="project_id"/>
+		                        	<field name="food_session"/>
+		                        	<field name="order_date"/>
+		                        	<field name="day"/>
+                	</tree>
+	            </field>
+	        </record>
+            <record id="open_view_catering_diet_order" model="ir.actions.act_window">
+	            <field name="name">Diet Orders</field>
+	            <field name="res_model">catering.diet.order</field>
+	            <field name="view_type">form</field>
+	            <field name="view_mode">tree,form</field>
+	            <field name="view_id" eval="False"/>
+	        </record>
+	        <menuitem action="open_view_catering_diet_order" id="menu_open_view_catering_diet_order" parent="menu_diet_order"/>
+	        
+	 <!-- Diet Order Lines-->
+	        <record model="ir.ui.view" id="view_diet_order_line_tree">
+                <field name="name">diet.order.line.tree</field>
+                <field name="model">diet.order.line</field>
+                <field name="arch" type="xml">
+					<tree string="Diet Orders Lines" create="false" edit="false">
+                    			<field name="benificery_word_id"/>
+	                        	<field name="benificery_word_category_id"/>
+	                        	<field name="number_of_benificery"/>
+	                        	<field name="diet_order_id"/>
+	                        	<field name="project_id"/>
+                </tree>
+	            </field>
+	        </record>
+	        <record model="ir.ui.view" id="view_diet_order_line_pivot">
+                <field name="name">diet.order.line.pivot</field>
+                <field name="model">diet.order.line</field>
+                <field name="arch" type="xml">
+					<pivot string="Diet Order Lines" display_quantity="true">
+	                    <field name="benificery_word_id"/>
+	                    <field name="number_of_benificery" type="measure"/>
+	                    <field name="benificery_word_category_id" type="measure"/>
+	                    <field name="project_id"/>
+	                </pivot>
+	            </field>
+	        </record>
+	        <record model="ir.ui.view" id="view_diet_order_line_graph">
+                <field name="name">diet.order.line.graph</field>
+                <field name="model">diet.order.line</field>
+                <field name="arch" type="xml">
+					<graph string="Diet Order Lines" display_quantity="true">
+	                     <field name="benificery_word_category_id" type="row"/>
+                        <field name="number_of_benificery" type="measure"/>
+                        <field name="project_id" type="row"/>
+	                </graph>
+	            </field>
+	        </record>
+            <record id="open_view_diet_order_line" model="ir.actions.act_window">
+	            <field name="name">Diet Orders Lines</field>
+	            <field name="res_model">diet.order.line</field>
+	            <field name="view_type">form</field>
+	            <field name="view_mode">tree,pivot,graph,form</field>
+	            <field name="view_id" eval="False"/>
+	        </record>
+        <menuitem action="open_view_diet_order_line" id="menu_open_view_diet_order_line" parent="menu_catering_abstract_reports"/>
+        
+        
+  <!-- Diet Order Product Pack-->
+        <record model="ir.ui.view" id="view_DietOrderPackLine_tree">
+                <field name="name">diet.order.pack.line.tree</field>
+                <field name="model">diet.order.pack.line</field>
+                <field name="arch" type="xml">
+					<tree string="Diet Orders Lines" create="false" edit="false">
+                    			<field name="product_pack_ids"/>
+	                        	<field name="required_quantity"/>
+	                        	<field name="confirmed_quantity"/>
+	                        	<field name="diet_order_id"/>
+	                        	<field name="project_id"/>
+                </tree>
+	            </field>
+	        </record>
+	        <record model="ir.ui.view" id="view_DietOrderPackLine_pivot">
+                <field name="name">diet.order.pack.line.pivot</field>
+                <field name="model">diet.order.pack.line</field>
+                <field name="arch" type="xml">
+					<pivot string="DietOrderPackLine" display_quantity="true">
+	                    <field name="required_quantity"/>
+	                    <field name="confirmed_quantity" type="measure"/>
+	                    <field name="project_id"/>
+	                </pivot>
+	            </field>
+	        </record>
+	        <record model="ir.ui.view" id="view_DietOrderPackLine_graph">
+                <field name="name">diet.order.pack.line.graph</field>
+                <field name="model">diet.order.pack.line</field>
+                <field name="arch" type="xml">
+					<graph string="DietOrderPackLine" display_quantity="true">
+	                      <field name="required_quantity"/>
+	                    <field name="confirmed_quantity" type="measure"/>
+	                    <field name="project_id"/>
+	                </graph>
+	            </field>
+	        </record>
+            <record id="open_view_DietOrderPackLine" model="ir.actions.act_window">
+	            <field name="name">Products Pack Lines</field>
+	            <field name="res_model">diet.order.pack.line</field>
+	            <field name="view_type">form</field>
+	            <field name="view_mode">tree,pivot,graph,form</field>
+	            <field name="view_id" eval="False"/>
+	        </record>
+        <menuitem action="open_view_DietOrderPackLine" id="menu_open_view_DietOrderPackLine" parent="menu_catering_abstract_reports"/>
+        
+        
+  <!-- Diet Order DietOrderProductLine-->
+        <record model="ir.ui.view" id="view_DietOrderProductLine_tree">
+                <field name="name">diet.order.product.line.tree</field>
+                <field name="model">diet.order.product.line</field>
+                <field name="arch" type="xml">
+					<tree string="Diet Orders Lines" create="false" edit="false">
+                    			<field name="product_image"/>
+                    			<field name="product_id"/>
+	                        	<field name="product_uom_qty"/>
+	                        	<field name="product_uom"/>
+	                        	<field name="required_quantity"/>
+	                        	<field name="confirmed_quantity"/>
+	                        	<field name="diet_order_id"/>
+	                        	<field name="project_id"/>
+                </tree>
+	            </field>
+	        </record>
+	        <record model="ir.ui.view" id="view_DietOrderProductLine_pivot">
+                <field name="name">diet.order.product.line.pivot</field>
+                <field name="model">diet.order.product.line</field>
+                <field name="arch" type="xml">
+					<pivot string="DietOrderPackLine" display_quantity="true">
+	                    <field name="product_id"/>
+	                    <field name="confirmed_quantity" type="measure"/>
+	                    <field name="project_id"/>
+	                </pivot>
+	            </field>
+	        </record>
+	        <record model="ir.ui.view" id="view_DietOrderProductLine_graph">
+                <field name="name">diet.order.product.line.graph</field>
+                <field name="model">diet.order.product.line</field>
+                <field name="arch" type="xml">
+					<graph string="DietOrderPackLine" display_quantity="true">
+	                      <field name="product_id"/>
+	                    <field name="confirmed_quantity" type="measure"/>
+	                    <field name="project_id"/>
+	                </graph>
+	            </field>
+	        </record>
+            <record id="open_view_DietOrderProductLine" model="ir.actions.act_window">
+	            <field name="name">Product Line</field>
+	            <field name="res_model">diet.order.product.line</field>
+	            <field name="view_type">form</field>
+	            <field name="view_mode">tree,pivot,graph,form</field>
+	            <field name="view_id" eval="False"/>
+	        </record>
+        <menuitem action="open_view_DietOrderProductLine" id="menu_open_view_DietOrderProductLine"
+        			 parent="menu_catering_abstract_reports"/>
+        
+        
+        
+        
+        
+         </data>
+</openerp>
